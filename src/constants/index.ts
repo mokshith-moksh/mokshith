@@ -39,7 +39,7 @@ const dockApps = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
-    icon: "finder.png",
+    icon: "/finder.png",
     canOpen: true,
   },
   {
