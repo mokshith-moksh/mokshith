@@ -14,7 +14,7 @@ const FONT_WEIGHTS = {
   },
 };
 const setupTextHover = (container: HTMLElement, type: string) => {
-  if (!container) return;
+  if (!container) return () => {};
   const letters = container.querySelectorAll("span");
   const {
     min,
