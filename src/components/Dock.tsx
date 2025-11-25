@@ -3,8 +3,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef } from "react";
 import { Tooltip } from "react-tooltip";
+import { useDispatch, useSelector } from "react-redux";
+import { openWindow, closeWindow } from "#store/windows/windowSlice";
+import { RootState } from "#store/store";
 const Dock = () => {
   const dockRef = useRef(null);
+  const dispatch = useDispatch();
+  const windows = useSelector((state: RootState) => state.windows.windows);
   useGSAP(() => {
     const dock = dockRef.current as HTMLElement | null;
     if (!dock) return () => {};
@@ -44,7 +49,23 @@ const Dock = () => {
       dock.removeEventListener("mouseleave", resetIcons);
     };
   }, []);
-  const toggleApp = ({ id, canOpen }: { id: string; canOpen: boolean }) => {};
+  const toggleApp = ({
+    id,
+    canOpen,
+  }: {
+    id: keyof typeof windows;
+    canOpen: boolean;
+  }) => {
+    if (!canOpen) return;
+    const appWindow = windows[id];
+    if (appWindow.isOpen) {
+      dispatch(closeWindow({ windowKey: id }));
+    } else {
+      dispatch(openWindow({ windowKey: id, data: null }));
+      console.log("workings");
+    }
+    console.log(windows);
+  };
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
