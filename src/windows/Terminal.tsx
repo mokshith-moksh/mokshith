@@ -1,14 +1,11 @@
-import WindowControl from "#components/WindowControl";
 import { techStack } from "#constants/index";
 import WindowWrapper from "#hoc/windowWrapper";
 import { Check } from "lucide-react";
 
 const Terminal = ({ name }: { name: string }) => {
   return (
-    <div className="bg-[#050608] w-full h-full text-[#E5E7EB] rounded-xl border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.65)] overflow-hidden font-mono ">
-      <WindowControl name={name} windowName="terminal" />
-
-      <div className="px-4 w-full py-3 bg-gradient-to-b from-[#050608] via-[#050608] to-[#050608]/95">
+    <div className="bg-[#050608] w-full h-full text-[#E5E7EB] rounded-bl-lg rounded-br-lg border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.65)] overflow-hidden font-mono ">
+      <div className="px-[10%] w-full py-3 bg-gradient-to-b from-[#050608] via-[#050608] to-[#050608]/95">
         <div className="mb-3">
           <p className="text-[13px] text-[#A5B4FC]">
             <span className="text-[#4ADE80] font-semibold">@{name}</span>
@@ -17,12 +14,12 @@ const Terminal = ({ name }: { name: string }) => {
           </p>
         </div>
 
-        <div className="flex items-center gap-4 font-medium border-b border-white/10 pb-2 mb-3 text-[12px] uppercase tracking-[0.12em] text-white/50">
+        <div className="flex items-center gap-[10%] font-medium border-b border-white/10 pb-2 mb-3 text-[12px] uppercase tracking-[0.12em] text-white/50">
           <p className="w-32">Category</p>
           <p>Technologies</p>
         </div>
 
-        <ul className="space-y-2 max-h-[260px] pr-1 overflow-y-auto">
+        <ul className="space-y-[2%]  pr-1 overflow-y-auto">
           {techStack.map(({ category, items }) => (
             <li
               key={category}

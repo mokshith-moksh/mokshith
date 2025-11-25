@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { focusWindow } from "#store/windows/windowSlice";
 import { useDispatch } from "react-redux";
 import { Draggable } from "gsap/Draggable";
+import WindowControl from "#components/WindowControl";
 const WindowWrapper = <P extends object>(
   Component: React.ComponentType<P>,
   windowKey: Window["window"]
@@ -17,6 +18,7 @@ const WindowWrapper = <P extends object>(
     const windows = useSelector((state: RootState) => state.windows.windows);
     const { zIndex, isOpen } = windows[windowKey];
     const ref = useRef(null);
+    const headerRef = useRef<HTMLDivElement | null>(null);
     useGSAP(() => {
       const ele = ref.current as HTMLElement | null;
       if (!ele || !isOpen) return;
@@ -29,8 +31,10 @@ const WindowWrapper = <P extends object>(
     }, [isOpen]);
     useGSAP(() => {
       const ele = ref.current as HTMLElement | null;
-      if (!ele) return;
+      const header = headerRef.current as HTMLElement | null;
+      if (!ele || !header) return;
       const [instance] = Draggable.create(ele, {
+        trigger: header,
         onPress: () => {
           dispatch(focusWindow({ windowKey }));
         },
@@ -51,8 +55,17 @@ const WindowWrapper = <P extends object>(
         ref={ref}
         style={{ zIndex: zIndex, minWidth: 320, minHeight: 200 }}
         className={`absolute resize overflow-auto`}
+        onMouseDown={(e) => {
+          console.log(e);
+        }}
+        onMouseLeave={(e) => e.stopPropagation()}
       >
-        <Component {...props} />
+        <div className="relative w-full h-full flex flex-col bg-transparent">
+          <div ref={headerRef}>
+            <WindowControl name={"mokshith"} windowName={windowKey} />
+          </div>
+          <Component {...props} />
+        </div>
       </section>
     );
   };
