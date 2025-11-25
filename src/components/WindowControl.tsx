@@ -20,7 +20,7 @@ const WindowControl = ({
   return (
     <div
       ref={dragHelper}
-      className="flex r items-center justify-between px-4 py-2 bg-gradient-to-b from-[#1b1d23] to-[#111217] border-b border-white/10"
+      className="flex items-center gap-3 px-4 py-[6px] bg-[#f5f5f7] border-b border-black/10 select-none cursor-grab active:cursor-grabbing"
     >
       <div
         onClick={() => handleClose(windowName)}

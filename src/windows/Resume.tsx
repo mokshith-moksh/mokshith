@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import WindowControl from "#components/WindowControl";
 import WindowWrapper from "#hoc/windowWrapper";
 import { Document, Page, pdfjs } from "react-pdf";
 import {
@@ -41,7 +40,6 @@ const Resume: React.FC<ResumeProps> = ({ name }) => {
   const canPrev = pageNumber > 1;
   const canNext = numPages ? pageNumber < numPages : false;
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft" && canPrev) {
@@ -56,10 +54,7 @@ const Resume: React.FC<ResumeProps> = ({ name }) => {
   }, [canPrev, canNext]);
 
   return (
-    <div className="bg-[#050608] w-full h-full text-[#E5E7EB] rounded-xl border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.65)] overflow-hidden">
-      <WindowControl name={name} windowName="resume" />
-
-      {/* Toolbar */}
+    <div className="bg-[#050608] w-full h-full rounded-bl-lg rounded-br-lg text-[#E5E7EB] border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.65)] overflow-hidden">
       <div className="px-4 py-2 bg-[#0b0d10] border-b border-white/10 flex items-center justify-between text-xs">
         <div className="flex items-center gap-2 text-white/60">
           <span className="text-[11px] truncate max-w-[180px]">
