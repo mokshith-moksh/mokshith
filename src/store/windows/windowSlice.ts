@@ -5,6 +5,10 @@ export interface WindowState {
   windows: typeof WINDOW_CONFIG;
   nextZIndex: number;
 }
+export interface Window {
+  window: keyof typeof WINDOW_CONFIG;
+}
+
 const initialState: WindowState = {
   windows: WINDOW_CONFIG,
   nextZIndex: INITIAL_Z_INDEX + 1,
