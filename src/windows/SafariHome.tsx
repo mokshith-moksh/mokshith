@@ -14,14 +14,14 @@ const SafariHome = ({ loadURL }: { loadURL: (url: string) => void }) => {
       url: "shipfilez.app",
     },
     {
-      title: "JustShareIt",
-      subtitle: "Serverless WebRTC Transfer",
-      url: "#",
+      title: "ColorCord",
+      subtitle: "Discord Colored Text Generator",
+      url: "colorcord.vercel.app",
     },
     {
-      title: "EduClout",
-      subtitle: "Course Platform",
-      url: "#",
+      title: "Shipfilez Reaches an Exciting Milestone",
+      subtitle: "newsletter",
+      url: "heapheaphurray.com/p/heap-heap-hurray-ed-347",
     },
   ];
 

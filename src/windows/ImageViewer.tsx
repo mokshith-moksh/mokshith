@@ -6,6 +6,7 @@ const ImageViewer = () => {
   const { data } = useSelector(
     (state: RootState) => state.windows.windows.imgfile
   );
+  // @ts-ignore
   return <img src={data?.imageUrl} />;
 };
 const ImageViewerWindow = WindowWrapper(ImageViewer, "imgfile");
