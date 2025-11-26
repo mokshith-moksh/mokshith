@@ -55,10 +55,6 @@ const WindowWrapper = <P extends object>(
         ref={ref}
         style={{ zIndex: zIndex, minWidth: 320, minHeight: 200 }}
         className={`absolute resize overflow-auto`}
-        onMouseDown={(e) => {
-          console.log(e);
-        }}
-        onMouseLeave={(e) => e.stopPropagation()}
       >
         <div className="relative w-full h-full flex flex-col bg-transparent">
           <div ref={headerRef}>

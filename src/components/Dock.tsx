@@ -79,6 +79,7 @@ const Dock = () => {
               data-tooltip-id="dock-tooltip"
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
+              // @ts-ignore
               onClick={() => toggleApp({ id, canOpen })}
             >
               <img

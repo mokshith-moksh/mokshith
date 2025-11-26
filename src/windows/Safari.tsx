@@ -90,6 +90,7 @@ const Safari = ({ name }: { name: string }) => {
             <input
               className="text-[11px] text-[#3a3a3c] truncate w-full bg-transparent focus:outline-none"
               type="text"
+              placeholder="Search or enter website name"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}

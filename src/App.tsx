@@ -1,9 +1,16 @@
 import { Dock, Navbar, Welcome } from "#components/index";
 import Draggable from "gsap/Draggable";
 import gsap from "gsap";
-import TerminalWindow from "#windows/Terminal";
-import SafariWindow from "#windows/Safari";
-import ResumeWindow from "#windows/Resume";
+import {
+  Terminal,
+  Finder,
+  Resume,
+  SafariWindow,
+  ContactWindow,
+} from "#windows/index";
+import TextViewerWindow from "#windows/textViewer";
+import ImageViewerWindow from "#windows/ImageViewer";
+import Desktop from "#windows/Desktop";
 gsap.registerPlugin(Draggable);
 const App = () => {
   return (
@@ -11,9 +18,14 @@ const App = () => {
       <Navbar />
       <Welcome />
       <Dock />
-      <TerminalWindow name="mokshith" />
+      <Terminal name="mokshith" />
       <SafariWindow name="mokshith" />
-      <ResumeWindow name="mokshith" />
+      <Resume name="mokshith" />
+      <Finder />
+      <TextViewerWindow />
+      <ImageViewerWindow />
+      <Desktop />
+      <ContactWindow />
     </main>
   );
 };

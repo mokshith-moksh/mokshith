@@ -16,6 +16,7 @@ const Navbar = () => {
               key={id}
               onClick={() => {
                 console.log("Opening window:", name);
+                // @ts-ignore
                 dispatch(openWindow({ windowKey: type, data: null }));
               }}
             >
