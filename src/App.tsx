@@ -8,7 +8,7 @@ import {
   SafariWindow,
   ContactWindow,
 } from "#windows/index";
-import TextViewerWindow from "#windows/textViewer";
+import TextViewerWindow from "#windows/TextViewer";
 import ImageViewerWindow from "#windows/ImageViewer";
 import Desktop from "#windows/Desktop";
 gsap.registerPlugin(Draggable);
